@@ -1,0 +1,41 @@
+{% extends 'branch_header.html' %}
+
+{% block content %}
+
+<br>
+<div class="col p-2 container" style="background-color: #5bd9cc; color: lavenderblush;">
+    <h1 style="color:white;">Add ATM</h1>
+    </div><br>
+<div class=" container" style="background-color: #5bd9cc; color: lavenderblush;">
+
+    <table class="table">
+        <form action="../add_atm" method="post">
+    {% csrf_token %}
+
+      <tr>
+        <th>Adddress :</th>
+        <td><input type="text" name="address" style="opacity:0.6; width:250px; height:35px;">
+        </td>
+      </tr>
+      <tr>
+       <th>Latitude:</th>
+       <td><input type="text" name="lat"style="opacity:0.6; width:250px; height:35px;" >
+        </td>
+      </tr>
+        <tr>
+            <th>Longitude :</th>
+            <td>
+                <input type="text" name="lon" style="opacity:0.6; width:250px; height:35px;">
+            </td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td><input type="submit" value="Add" class=" bg-info "></td>
+        </tr>
+             </form>
+        </table>
+
+</div>
+
+{% endblock %}
