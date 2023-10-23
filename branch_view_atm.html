@@ -1,0 +1,38 @@
+{% extends 'branch_headernologout.html' %}
+{% block content %}
+
+<br>
+<br>
+<div class="col p-2 container" style="background-color: #5bd9cc; color: lavenderblush;">
+    <h3 style="color:white;"><b>Viewing ATM</b></h3>
+</div>
+<br>
+<div class=" container" style="background-color: #5bd9cc; color: lavenderblush;">
+<table style="width:100%; color:black; text-align:left;" class="table">
+
+    <tr style="color:red;">
+        <th>Sl No.</th>
+        <th> Address</th>
+        <th>Location</th>
+        <th>Current Status</th>
+        <th colspan ='2'>Update Status</th>
+        <th colspan ='2'></th>
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{data.2}} </td>
+        <td><a href="../location/{{data.3}}/{{data.4}}"><span class="glyphicon glyphicon-pencil" >View</span></a></td>
+
+        <td>{{data.5}}</td>
+      <td><a href="../open_atm/{{data.0}}">Open</a></td>
+      <td><a href="../close_atm/{{data.0}}">Close</a></td>
+      <td> <a href="#">Edit</a></td><!--../edit_department/{{data.0}}-->
+      <td> <a href="#">Remove</a></td><!--../delete_department/{{data.0}}-->
+
+
+    </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

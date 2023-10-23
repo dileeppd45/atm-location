@@ -1,0 +1,182 @@
+
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>ATM Service</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="../static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/css/responsive.css" rel="stylesheet" />
+  <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.center{
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+}
+</style>
+
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="../home_page">
+            <h3>
+              ATM
+            </h3>
+            <span>Service</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../home_page">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="../signin_branch">Branch Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../signin">User Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../login">Login</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="detail-box">
+                    <div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+  </div>
+
+  <div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+    <section >
+<form action="../signin_branch" method="post">
+        {% csrf_token %}
+        <h2 style=" color:green;"><b>Branch Register</b></h2>
+        <div class="center">
+          <table>
+          <tr><label  style="float:left; padding-left:15px; color:green;"><b>Branch Id :</b></label></tr>
+          <tr><input type="text" placeholder="Enter Branch Name" name="branchid" required></tr>
+            <tr><label  style="float:left; padding-left:15px; color:green;"><b>Bank Name :</b></label></tr>
+          <tr>
+        <select  name="name"  required  style="opacity:0.6; width:250px; height:35px; ">
+          <option value="" selected>Select Bank</option>
+           {% for data in bank %}
+          <option value="{{data.0}}">{{data.1}}</option>
+          {% endfor %}
+        </select>
+      </tr>
+            <tr><label  style="float:left; padding-left:15px; color:green;"><b>Ifsc Code :</b></label></tr>
+          <tr><input type="text" placeholder="Enter Ifsc Code" name="ifsc" required></tr>
+            <tr><label  style="float:left; padding-left:15px; color:green;"><b>Start Date :</b></label></tr>
+          <tr><input type="date" placeholder="Enter Ifsc Code" name="start_date" required style="opacity:0.6; width:250px; height:35px; "></tr>
+            <tr><label  style="float:left; padding-left:15px; color:green;"><b>District:</b></label></tr>
+       <tr>
+        <select  name="district"  required  style="opacity:0.6; width:250px; height:35px; ">
+          <option value="" selected>Select District</option>
+           {% for data in data %}
+          <option value="{{data.1}}" >{{data.1}}</option>
+          {% endfor %}
+        </select>
+      </tr>
+            <br>
+            <tr><label  style="float:left; padding-left:15px; color:green;"><b>Phone :</b></label></tr>
+          <tr><input type="text" placeholder="Enter Phone" name="phone" required pattern="[6-9]{1}[0-9]{9}" title="incorrect phone no"></tr>
+              <tr><label  style="float:left; padding-left:15px; color:green;"><b>Lattitude :</b></label></tr>
+          <tr><input type="text" placeholder="Enter lattitude" name="lat" required></tr>
+              <tr><label  style="float:left; padding-left:15px; color:green;"><b>Longitude :</b></label></tr>
+          <tr><input type="text" placeholder="Enter longitude" name="long" required></tr>
+          <tr><label   style="float:left; padding-left:15px; color:green;"><b>Password :</b></label></tr>
+          <tr><input type="password" placeholder="Enter Password" name="password" required></tr><br>
+
+          <tr><button type="submit" class="btn btn-success">Register</button></tr>
+          </table>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <footer class="container-fluid footer_section">
+    <p>
+      &copy; 2023 All Rights Reserved By
+      <a href="#">ATM Service</a>
+    </p>
+  
+  </footer>
+
+   
+  <footer class="container-fluid footer_section">
+  
+      <p>
+        Distributed By 
+        <a href="#">ATM Service</a>
+      </p>
+  
+  </footer>
+ 
+  <!-- footer section -->
+
+  <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+
+</body>
+
+</html>
